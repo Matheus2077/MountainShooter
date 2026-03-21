@@ -7,6 +7,10 @@ from code.level import Level
 from code.menu import Menu
 
 
+#def mostrar_placar(window):
+ #   pass
+
+
 class Game:
     def __init__(self):
         pygame.init()
@@ -17,13 +21,29 @@ class Game:
             menu = Menu(self.window)
             menu_return = menu.run()
 
-            if menu_return in [MENU_OPTION[0], [MENU_OPTION[1], MENU_OPTION[2]]]:
+            # código original do Prof.
+            if menu_return in [MENU_OPTION[0], MENU_OPTION[1], MENU_OPTION[2]]:
+
                 level = Level(self.window, 'Level1', menu_return)
+                level_return = level.run()
             elif menu_return == MENU_OPTION[4]:
-                pygame.quit() #close window
-                quit() #end pygame
+                pygame.quit()  # close window
+                quit()  # end pygame
             else:
                 pass
+
+
+
+            # if menu_return in [MENU_OPTION[0], MENU_OPTION[1], MENU_OPTION[2]]:
+            #     level = Level(self.window, name='Level1', game_mode=menu_return)
+            #     level.run()
+            # elif menu_return == MENU_OPTION[4]:
+            #     pygame.quit()
+            #     quit()
+            # elif menu_return == MENU_OPTION[3]:
+            #     mostrar_placar(self.window)
+
+
 
 
             # Check for all events
